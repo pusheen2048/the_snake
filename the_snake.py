@@ -151,7 +151,7 @@ def main():
     # Инициализация PyGame:
     pygame.init()
     snake = Snake()
-    apple = Apple()     pygame.display.update()
+    apple = Apple() 
 
     # Основная логика игры
     while True:
