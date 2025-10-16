@@ -152,12 +152,12 @@ def handle_keys(game_object):
 
 
 def main():
+    """Основная логика игры"""
     # Инициализация PyGame:
     pygame.init()
     snake = Snake()
     apple = Apple()
-
-    # Основная логика игры
+    # Игровой цикл
     while True:
         clock.tick(SPEED)
         snake.draw()
