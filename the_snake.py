@@ -43,16 +43,19 @@ clock = pygame.time.Clock()
 
 class GameObject:
     """Родительский класс игрового объекта."""
+
     def __init__(self):
         self.position = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
         self.body_color = None
 
     def draw(self):
+        """Отрисовка объекта."""
         pass
 
 
 class Apple(GameObject):
     """Класс яблока."""
+
     def __init__(self):
         super().__init__()
         self.body_color = APPLE_COLOR
@@ -73,6 +76,7 @@ class Apple(GameObject):
 
 class Snake(GameObject):
     """Класс змейки."""
+
     def __init__(self):
         super().__init__()
         self.length = 1
@@ -81,7 +85,7 @@ class Snake(GameObject):
         self.next_direction = None
         self.body_color = SNAKE_COLOR
         self.last = None
-        
+
     def draw(self):
         """Отрисовка змейки."""
         for position in self.positions[:-1]:
@@ -112,7 +116,7 @@ class Snake(GameObject):
     def move(self):
         """Передвижение змейки."""
         head = self.get_head_position()
-        new_pos = ((head[0] + self.direction[0] * GRID_SIZE) % SCREEN_WIDTH, 
+        new_pos = ((head[0] + self.direction[0] * GRID_SIZE) % SCREEN_WIDTH,
                    (head[1] + self.direction[1] * GRID_SIZE) % SCREEN_HEIGHT)
         self.last = self.positions[0]
         if len(self.positions) > self.length:
@@ -151,7 +155,7 @@ def main():
     # Инициализация PyGame:
     pygame.init()
     snake = Snake()
-    apple = Apple() 
+    apple = Apple()
 
     # Основная логика игры
     while True:
